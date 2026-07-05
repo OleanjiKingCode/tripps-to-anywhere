@@ -12,6 +12,10 @@ Any static server works, e.g.:
 npx serve .
 ```
 
+## Photo credits
+
+All gallery photos are from real trips. Two route-stop photos are from Unsplash (free license): `table-mountain.jpg` by Vimal Joseph, `boulders-penguins.jpg` by Casey Allen.
+
 ## Adding photos or videos
 
 1. Drop the file into `media/`

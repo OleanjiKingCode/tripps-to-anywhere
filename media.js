@@ -9,7 +9,7 @@ const SITE = {
   promiseImg: "media/img-27.jpg",
   railPicks: ["img-26.jpg","img-01.jpg","img-41.jpg","img-28.jpg","img-14.jpg","img-31.jpg","img-42.jpg","img-18.jpg","img-20.jpg","img-33.jpg","img-23.jpg","img-06.jpg"],
   route: [
-    { name: "Table Mountain", img: "img-27.jpg",
+    { name: "Table Mountain", img: "table-mountain.jpg",
       desc: "Up the cableway (or on foot, if you're feeling brave) for the view that defines the city. We time it for clear skies." },
     { name: "Camps Bay & the Twelve Apostles", img: "img-41.jpg",
       desc: "Palm-lined beachfront under a wall of mountains. Coffee stop, toes in the sand, and one of the best photo backdrops on the coast." },
@@ -17,9 +17,9 @@ const SITE = {
       desc: "A working fishing harbour with a laid-back soul. Optional boat cruise to Seal Island before lunch on the water." },
     { name: "Chapman's Peak Drive", img: "img-10.jpg",
       desc: "114 curves carved into the cliffside — the most beautiful road in South Africa. We stop at the viewpoints everyone else drives past." },
-    { name: "Cape of Good Hope & Cape Point", img: "img-20.jpg",
+    { name: "Cape of Good Hope & Cape Point", img: "img-06.jpg",
       desc: "The dramatic tip of the peninsula, where the cliffs drop into wild ocean. The sign photo is mandatory. The wind is free." },
-    { name: "Boulders Beach Penguins", img: "img-39.jpg",
+    { name: "Boulders Beach Penguins", img: "boulders-penguins.jpg",
       desc: "A colony of African penguins on a sheltered white-sand beach in Simon's Town. Yes, they're as delightful as they look." },
   ],
   experiences: [
