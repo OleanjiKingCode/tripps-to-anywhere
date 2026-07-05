@@ -3,15 +3,15 @@
 // To change the WhatsApp number: edit SITE.whatsapp (country code, no + or spaces).
 
 const SITE = {
-  whatsapp: "27000000000", // TODO: replace with the real WhatsApp number
+  whatsapp: "27781621038",
   facebook: "https://www.facebook.com/share/17fV18rHh4/",
   hero: "media/img-26.jpg",
   promiseImg: "media/img-27.jpg",
-  railPicks: ["img-26.jpg","img-01.jpg","img-28.jpg","img-14.jpg","img-31.jpg","img-18.jpg","img-20.jpg","img-23.jpg","img-06.jpg","img-10.jpg"],
+  railPicks: ["img-26.jpg","img-01.jpg","img-41.jpg","img-28.jpg","img-14.jpg","img-31.jpg","img-42.jpg","img-18.jpg","img-20.jpg","img-33.jpg","img-23.jpg","img-06.jpg"],
   route: [
     { name: "Table Mountain", img: "img-27.jpg",
       desc: "Up the cableway (or on foot, if you're feeling brave) for the view that defines the city. We time it for clear skies." },
-    { name: "Camps Bay & the Twelve Apostles", img: null,
+    { name: "Camps Bay & the Twelve Apostles", img: "img-41.jpg",
       desc: "Palm-lined beachfront under a wall of mountains. Coffee stop, toes in the sand, and one of the best photo backdrops on the coast." },
     { name: "Hout Bay Harbour", img: "img-18.jpg",
       desc: "A working fishing harbour with a laid-back soul. Optional boat cruise to Seal Island before lunch on the water." },
@@ -19,7 +19,7 @@ const SITE = {
       desc: "114 curves carved into the cliffside — the most beautiful road in South Africa. We stop at the viewpoints everyone else drives past." },
     { name: "Cape of Good Hope & Cape Point", img: "img-20.jpg",
       desc: "The dramatic tip of the peninsula, where the cliffs drop into wild ocean. The sign photo is mandatory. The wind is free." },
-    { name: "Boulders Beach Penguins", img: null,
+    { name: "Boulders Beach Penguins", img: "img-39.jpg",
       desc: "A colony of African penguins on a sheltered white-sand beach in Simon's Town. Yes, they're as delightful as they look." },
   ],
   experiences: [
@@ -64,5 +64,17 @@ const MEDIA = [
   { file: "img-16.jpg", type: "photo", orientation: "landscape", category: "places", caption: "Museum of Illusions, Cape Town" },
   { file: "img-08.jpg", type: "photo", orientation: "landscape", category: "people", caption: "Checking in, chandeliers overhead" },
   { file: "img-03.jpg", type: "photo", orientation: "portrait",  category: "people", caption: "Adventure day on the range" },
+  { file: "img-41.jpg", type: "photo", orientation: "landscape", category: "places", caption: "Camps Bay palms beneath Lion's Head" },
+  { file: "img-42.jpg", type: "photo", orientation: "landscape", category: "ocean",  caption: "Sunlit beachfront promenade, Camps Bay" },
+  { file: "img-33.jpg", type: "photo", orientation: "landscape", category: "places", caption: "The Cape Town sign at the Waterfront" },
+  { file: "img-45.jpg", type: "photo", orientation: "portrait",  category: "places", caption: "V&A Waterfront harbour from above" },
+  { file: "img-34.jpg", type: "photo", orientation: "portrait",  category: "places", caption: "Signpost to the world at Cape Point" },
+  { file: "img-35.jpg", type: "photo", orientation: "portrait",  category: "places", caption: "An ostrich wanders the Cape Point fynbos" },
+  { file: "img-39.jpg", type: "photo", orientation: "landscape", category: "places", caption: "Penguins gathered on the sand" },
+  { file: "img-38.jpg", type: "photo", orientation: "landscape", category: "ocean",  caption: "Rays glide through turquoise waters" },
+  { file: "img-43.jpg", type: "photo", orientation: "landscape", category: "places", caption: "Seal Island cruises await in Hout Bay" },
+  { file: "img-44.jpg", type: "photo", orientation: "landscape", category: "places", caption: "A gull surveys the harbour" },
+  { file: "img-32.jpg", type: "photo", orientation: "landscape", category: "places", caption: "City towers above a rooftop pool" },
+  { file: "img-36.jpg", type: "photo", orientation: "landscape", category: "places", caption: "Evening drive toward the peninsula mountains" },
   { file: "video-01.mp4", type: "video", orientation: "portrait", category: "video", caption: "Moments from the road" },
 ];
