@@ -1,0 +1,68 @@
+// ── Tripps to Anywhere · site data ─────────────────────────────
+// To add a photo: drop it in media/ and add one line to MEDIA.
+// To change the WhatsApp number: edit SITE.whatsapp (country code, no + or spaces).
+
+const SITE = {
+  whatsapp: "27000000000", // TODO: replace with the real WhatsApp number
+  facebook: "https://www.facebook.com/share/17fV18rHh4/",
+  hero: "media/img-26.jpg",
+  promiseImg: "media/img-27.jpg",
+  railPicks: ["img-26.jpg","img-01.jpg","img-28.jpg","img-14.jpg","img-31.jpg","img-18.jpg","img-20.jpg","img-23.jpg","img-06.jpg","img-10.jpg"],
+  route: [
+    { name: "Table Mountain", img: "img-27.jpg",
+      desc: "Up the cableway (or on foot, if you're feeling brave) for the view that defines the city. We time it for clear skies." },
+    { name: "Camps Bay & the Twelve Apostles", img: null,
+      desc: "Palm-lined beachfront under a wall of mountains. Coffee stop, toes in the sand, and one of the best photo backdrops on the coast." },
+    { name: "Hout Bay Harbour", img: "img-18.jpg",
+      desc: "A working fishing harbour with a laid-back soul. Optional boat cruise to Seal Island before lunch on the water." },
+    { name: "Chapman's Peak Drive", img: "img-10.jpg",
+      desc: "114 curves carved into the cliffside — the most beautiful road in South Africa. We stop at the viewpoints everyone else drives past." },
+    { name: "Cape of Good Hope & Cape Point", img: "img-20.jpg",
+      desc: "The dramatic tip of the peninsula, where the cliffs drop into wild ocean. The sign photo is mandatory. The wind is free." },
+    { name: "Boulders Beach Penguins", img: null,
+      desc: "A colony of African penguins on a sheltered white-sand beach in Simon's Town. Yes, they're as delightful as they look." },
+  ],
+  experiences: [
+    { name: "Aquila Safari Day", img: "img-28.jpg",
+      desc: "Big Five game drive at Aquila Private Game Reserve — lions, elephants and lunch at the lodge, back in the city by evening." },
+    { name: "Shark Cage Diving", img: "img-01.jpg",
+      desc: "Come face to face with sharks off the Cape coast. Full briefing, all gear included — you just need nerve." },
+    { name: "Quad Biking the Dunes", img: "img-31.jpg",
+      desc: "White-sand dunes just outside the city. Helmets on, throttle open, photos guaranteed." },
+  ],
+};
+
+const MEDIA = [
+  { file: "img-26.jpg", type: "photo", orientation: "landscape", category: "people", caption: "Friends above Hout Bay, Chapman's Peak" },
+  { file: "img-01.jpg", type: "photo", orientation: "landscape", category: "ocean",  caption: "Great white breaks the surface" },
+  { file: "img-02.jpg", type: "photo", orientation: "landscape", category: "ocean",  caption: "Face to face on a cage dive" },
+  { file: "img-27.jpg", type: "photo", orientation: "portrait",  category: "people", caption: "Summit selfie atop Table Mountain" },
+  { file: "img-28.jpg", type: "photo", orientation: "portrait",  category: "places", caption: "Lion pride at rest, Aquila reserve" },
+  { file: "img-20.jpg", type: "photo", orientation: "landscape", category: "people", caption: "Above the cliffs at Cape Point" },
+  { file: "img-14.jpg", type: "photo", orientation: "portrait",  category: "people", caption: "Arms wide at Africa's south-western tip" },
+  { file: "img-18.jpg", type: "photo", orientation: "portrait",  category: "people", caption: "Harbour cruise moments, Hout Bay" },
+  { file: "img-31.jpg", type: "photo", orientation: "portrait",  category: "people", caption: "Quad biking Cape Town's white dunes" },
+  { file: "img-10.jpg", type: "photo", orientation: "portrait",  category: "people", caption: "Selfies over Hout Bay from Chapman's Peak" },
+  { file: "img-06.jpg", type: "photo", orientation: "landscape", category: "people", caption: "Friends gathered at Cape of Good Hope" },
+  { file: "img-07.jpg", type: "photo", orientation: "landscape", category: "people", caption: "Group portrait, Cape of Good Hope" },
+  { file: "img-04.jpg", type: "photo", orientation: "landscape", category: "people", caption: "Smiles at the Cape of Good Hope" },
+  { file: "img-05.jpg", type: "photo", orientation: "landscape", category: "people", caption: "Family moment at Cape of Good Hope" },
+  { file: "img-13.jpg", type: "photo", orientation: "landscape", category: "people", caption: "Flying the flag at Cape of Good Hope" },
+  { file: "img-12.jpg", type: "photo", orientation: "portrait",  category: "people", caption: "Victory signs at Cape of Good Hope" },
+  { file: "img-15.jpg", type: "photo", orientation: "portrait",  category: "people", caption: "Three travellers at Cape of Good Hope" },
+  { file: "img-17.jpg", type: "photo", orientation: "portrait",  category: "people", caption: "Family warmth at Cape of Good Hope" },
+  { file: "img-21.jpg", type: "photo", orientation: "portrait",  category: "people", caption: "An elegant stop at Cape of Good Hope" },
+  { file: "img-22.jpg", type: "photo", orientation: "portrait",  category: "people", caption: "Embracing the wild Cape Point breeze" },
+  { file: "img-09.jpg", type: "photo", orientation: "portrait",  category: "people", caption: "Together beside a mountain lake" },
+  { file: "img-23.jpg", type: "photo", orientation: "portrait",  category: "people", caption: "A toast at the safari lodge" },
+  { file: "img-24.jpg", type: "photo", orientation: "portrait",  category: "people", caption: "Close moments at Aquila Safari" },
+  { file: "img-25.jpg", type: "photo", orientation: "portrait",  category: "people", caption: "Relaxing at Aquila Game Reserve" },
+  { file: "img-30.jpg", type: "photo", orientation: "landscape", category: "places", caption: "Lionesses lazing in the reserve" },
+  { file: "img-29.jpg", type: "photo", orientation: "portrait",  category: "places", caption: "Gates of Aquila Private Game Reserve" },
+  { file: "img-19.jpg", type: "photo", orientation: "portrait",  category: "places", caption: "Gentle farm horse in the sunshine" },
+  { file: "img-11.jpg", type: "photo", orientation: "landscape", category: "places", caption: "World of Birds sanctuary, Hout Bay" },
+  { file: "img-16.jpg", type: "photo", orientation: "landscape", category: "places", caption: "Museum of Illusions, Cape Town" },
+  { file: "img-08.jpg", type: "photo", orientation: "landscape", category: "people", caption: "Checking in, chandeliers overhead" },
+  { file: "img-03.jpg", type: "photo", orientation: "portrait",  category: "people", caption: "Adventure day on the range" },
+  { file: "video-01.mp4", type: "video", orientation: "portrait", category: "video", caption: "Moments from the road" },
+];

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tripps to Anywhere — Cape Town, handled.</title>
+<meta name="description" content="Private Cape Town trips with your own driver. Table Mountain, Chapman's Peak, Boulders Beach — we plan the route, book everything, and drive you there.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛰️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0d1f23;
+    --deep:#12414b;
+    --teal:#1c5d68;
+    --seafoam:#a7ccc4;
+    --sand:#e7d8c0;
+    --paper:#f7f3ea;
+    --rock:#6e6259;
+    --line:rgba(13,31,35,.12);
+    --serif:'Marcellus',serif;
+    --sans:'Inter',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.15}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);font-weight:600}
+  section{padding:96px 0}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:999px;font-weight:600;font-size:15px;transition:.25s;border:1px solid transparent;cursor:pointer}
+  .btn-solid{background:var(--deep);color:var(--paper)}
+  .btn-solid:hover{background:var(--teal);transform:translateY(-1px)}
+  .btn-ghost{border-color:rgba(247,243,234,.5);color:var(--paper)}
+  .btn-ghost:hover{background:rgba(247,243,234,.12)}
+  .btn-dark-ghost{border-color:var(--line);color:var(--ink)}
+  .btn-dark-ghost:hover{border-color:var(--ink)}
+
+  /* nav */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s;padding:22px 0}
+  nav.scrolled{background:rgba(247,243,234,.92);backdrop-filter:blur(12px);padding:14px 0;border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:var(--serif);font-size:21px;letter-spacing:.02em;color:var(--paper);transition:.3s}
+  nav.scrolled .logo{color:var(--ink)}
+  .navlinks{display:flex;gap:32px;align-items:center;font-size:14px;font-weight:500}
+  .navlinks a{color:rgba(247,243,234,.85);transition:.3s}
+  nav.scrolled .navlinks a{color:var(--ink)}
+  .navlinks a:hover{opacity:.65}
+  .navlinks .btn{padding:10px 22px;font-size:13.5px}
+  nav .btn-book{background:var(--paper);color:var(--ink)}
+  nav.scrolled .btn-book{background:var(--deep);color:var(--paper)}
+  @media(max-width:760px){.navlinks a:not(.btn){display:none}}
+
+  /* hero */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--paper)}
+  .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center 35%}
+  .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,31,35,.35) 0%,rgba(13,31,35,.15) 40%,rgba(13,31,35,.82) 100%)}
+  .hero .wrap{position:relative;padding-bottom:88px;width:100%}
+  .hero .eyebrow{color:var(--seafoam)}
+  .hero h1{font-size:clamp(46px,7.5vw,96px);margin:14px 0 18px;letter-spacing:.01em}
+  .hero p{max-width:560px;font-size:clamp(16px,2vw,19px);color:rgba(247,243,234,.9);margin-bottom:34px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+
+  /* trust strip */
+  .strip{border-bottom:1px solid var(--line);padding:26px 0}
+  .strip .wrap{display:flex;gap:18px 48px;flex-wrap:wrap;justify-content:center;font-size:14px;color:var(--rock)}
+  .strip span b{color:var(--ink);font-weight:600}
+
+  /* gallery strip */
+  .g-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+  .g-head h2{font-size:clamp(30px,4vw,44px);margin-top:12px}
+  .rail{display:flex;gap:16px;overflow-x:auto;padding:4px 24px 24px;scroll-snap-type:x mandatory;cursor:grab;max-width:1400px;margin:0 auto}
+  .rail::-webkit-scrollbar{height:6px}
+  .rail::-webkit-scrollbar-thumb{background:var(--seafoam);border-radius:3px}
+  .rail figure{flex:0 0 auto;width:280px;scroll-snap-align:start;position:relative;border-radius:14px;overflow:hidden;background:var(--sand)}
+  .rail figure.tall{width:250px}
+  .rail img{width:100%;height:380px;object-fit:cover;transition:transform .5s}
+  .rail figure:hover img{transform:scale(1.04)}
+  .rail figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 16px 14px;font-size:13px;color:var(--paper);background:linear-gradient(180deg,transparent,rgba(13,31,35,.75))}
+
+  /* route */
+  .route{background:var(--deep);color:var(--paper)}
+  .route .eyebrow{color:var(--seafoam)}
+  .route h2{font-size:clamp(30px,4vw,44px);margin:12px 0 10px}
+  .route .lead{color:rgba(247,243,234,.75);max-width:600px;margin-bottom:64px}
+  .stops{position:relative;padding-left:34px}
+  .stops::before{content:'';position:absolute;left:9px;top:8px;bottom:8px;border-left:2px dashed rgba(167,204,196,.45)}
+  .stop{position:relative;display:grid;grid-template-columns:1fr 300px;gap:20px 48px;align-items:center;padding:26px 0;border-bottom:1px solid rgba(247,243,234,.1)}
+  .stop:last-child{border-bottom:none}
+  .stop::before{content:'';position:absolute;left:-34px;top:50%;transform:translateY(-50%);width:14px;height:14px;border-radius:50%;background:var(--seafoam);border:3px solid var(--deep);box-shadow:0 0 0 2px rgba(167,204,196,.45)}
+  .stop h3{font-size:24px;margin-bottom:6px}
+  .stop p{color:rgba(247,243,234,.72);font-size:15px;max-width:520px}
+  .stop .tag{display:inline-block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--seafoam);margin-bottom:10px;font-weight:600}
+  .stop img{width:100%;height:190px;object-fit:cover;border-radius:12px}
+  @media(max-width:820px){.stop{grid-template-columns:1fr}.stop img{height:200px}}
+  .route-note{margin-top:56px;padding:28px 32px;border:1px solid rgba(167,204,196,.35);border-radius:16px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+  .route-note h3{font-size:22px;margin-bottom:6px}
+  .route-note p{color:rgba(247,243,234,.72);font-size:15px;max-width:560px}
+  .route-note .btn{background:var(--seafoam);color:var(--ink);flex-shrink:0}
+  .route-note .btn:hover{background:var(--sand)}
+
+  /* experiences */
+  .exp h2{font-size:clamp(30px,4vw,44px);margin:12px 0 14px}
+  .exp .lead{color:var(--rock);max-width:560px;margin-bottom:52px}
+  .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:820px){.exp-grid{grid-template-columns:1fr}}
+  .exp-card{position:relative;border-radius:18px;overflow:hidden;min-height:420px;display:flex;align-items:flex-end;color:var(--paper)}
+  .exp-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .exp-card:hover img{transform:scale(1.05)}
+  .exp-card .inner{position:relative;padding:28px;background:linear-gradient(180deg,transparent,rgba(13,31,35,.85));width:100%}
+  .exp-card h3{font-size:24px;margin-bottom:8px}
+  .exp-card p{font-size:14px;color:rgba(247,243,234,.85)}
+
+  /* how */
+  .how h2{font-size:clamp(30px,4vw,44px);margin:12px 0 56px}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:820px){.steps{grid-template-columns:1fr}}
+  .step{background:#fff;border:1px solid var(--line);border-radius:18px;padding:36px 30px}
+  .step .num{font-family:var(--serif);font-size:44px;color:var(--seafoam)}
+  .step h3{font-size:21px;margin:14px 0 10px}
+  .step p{color:var(--rock);font-size:15px}
+
+  /* promise */
+  .promise{background:var(--sand);border-radius:0}
+  .promise .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+  @media(max-width:860px){.promise .wrap{grid-template-columns:1fr}}
+  .promise h2{font-size:clamp(30px,4vw,44px);margin:12px 0 20px}
+  .promise p{color:#54483e;margin-bottom:16px}
+  .promise ul{list-style:none;margin-top:10px}
+  .promise li{padding:10px 0 10px 32px;position:relative;color:#3d332b;font-weight:500}
+  .promise li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-weight:700}
+  .promise img{border-radius:18px;width:100%;height:520px;object-fit:cover}
+  @media(max-width:860px){.promise img{height:380px}}
+
+  /* book */
+  .book{background:var(--ink);color:var(--paper);text-align:center}
+  .book .eyebrow{color:var(--seafoam)}
+  .book h2{font-size:clamp(32px,5vw,54px);margin:14px 0 16px}
+  .book>.wrap>p{color:rgba(247,243,234,.75);max-width:520px;margin:0 auto 40px}
+  .book-card{max-width:560px;margin:0 auto;background:rgba(247,243,234,.06);border:1px solid rgba(247,243,234,.14);border-radius:20px;padding:36px;text-align:left}
+  .book-card label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--seafoam);font-weight:600;display:block;margin:18px 0 8px}
+  .book-card label:first-child{margin-top:0}
+  .book-card input,.book-card textarea{width:100%;background:rgba(247,243,234,.08);border:1px solid rgba(247,243,234,.18);border-radius:10px;padding:13px 15px;color:var(--paper);font-family:var(--sans);font-size:15px}
+  .book-card input:focus,.book-card textarea:focus{outline:none;border-color:var(--seafoam)}
+  .book-card textarea{min-height:90px;resize:vertical}
+  .book-card .btn{width:100%;justify-content:center;margin-top:26px;background:#25d366;color:#06281a;font-size:16px}
+  .book-card .btn:hover{filter:brightness(1.08)}
+  .alt-contact{margin-top:26px;font-size:14px;color:rgba(247,243,234,.6)}
+  .alt-contact a{color:var(--seafoam);font-weight:600}
+
+  footer{background:var(--ink);color:rgba(247,243,234,.55);padding:34px 0;border-top:1px solid rgba(247,243,234,.1);font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  footer .logo{font-size:18px}
+  footer a:hover{color:var(--paper)}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="logo" href="#">Tripps to Anywhere</a>
+    <div class="navlinks">
+      <a href="#route">The Route</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="#how">How it works</a>
+      <a href="#book" class="btn btn-book">Book a trip</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="wrap">
+    <span class="eyebrow">Cape Town · South Africa</span>
+    <h1>Cape Town,<br>handled.</h1>
+    <p>You land. We do the rest — your own driver, a route built around what you want to see, and every stop booked before you arrive.</p>
+    <div class="hero-ctas">
+      <a href="#book" class="btn btn-solid" style="background:var(--paper);color:var(--ink)">Plan my trip</a>
+      <a href="gallery.html" class="btn btn-ghost">See the gallery</a>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <span><b>Private driver</b> — door to door</span>
+    <span><b>Full Peninsula route</b> in one day</span>
+    <span><b>Everything pre-booked</b> — no queues, no guesswork</span>
+    <span><b>Your pace</b> — stop wherever, as long as you like</span>
+  </div>
+</div>
+
+<section id="gallery">
+  <div class="wrap g-head reveal">
+    <div>
+      <span class="eyebrow">From real trips</span>
+      <h2>The Cape, as our guests see it</h2>
+    </div>
+    <a class="btn btn-dark-ghost" href="gallery.html">View the full gallery →</a>
+  </div>
+  <div class="rail" id="rail"></div>
+</section>
+
+<section class="route" id="route">
+  <div class="wrap">
+    <span class="eyebrow reveal">The signature day</span>
+    <h2 class="reveal">The Peninsula Route</h2>
+    <p class="lead reveal">One unforgettable loop around the Cape Peninsula — these are the stops, in the order you'll drive them. Skip any, linger at any. It's your day.</p>
+    <div class="stops" id="stops"></div>
+    <div class="route-note reveal">
+      <div>
+        <h3>Prefer the city instead?</h3>
+        <p>We also do a full-day Cape Town city drive — Bo-Kaap, the V&amp;A Waterfront, Signal Hill at sunset and every viewpoint in between.</p>
+      </div>
+      <a href="#book" class="btn">Ask about the city day</a>
+    </div>
+  </div>
+</section>
+
+<section class="exp" id="experiences">
+  <div class="wrap">
+    <span class="eyebrow reveal">Beyond the peninsula</span>
+    <h2 class="reveal">Add an adventure</h2>
+    <p class="lead reveal">A day with lions, a cage between you and a shark, or dunes under your wheels — we arrange it all, transport included.</p>
+    <div class="exp-grid" id="expGrid"></div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <span class="eyebrow reveal">Simple on purpose</span>
+    <h2 class="reveal">How it works</h2>
+    <div class="steps">
+      <div class="step reveal"><div class="num">01</div><h3>Tell us your dates</h3><p>Message us on WhatsApp with when you're coming and what you'd love to see. We'll reply the same day.</p></div>
+      <div class="step reveal"><div class="num">02</div><h3>We plan &amp; book it all</h3><p>Route, entry tickets, lunch spots, timing around the weather — sorted before you board your flight.</p></div>
+      <div class="step reveal"><div class="num">03</div><h3>Your driver meets you</h3><p>Picked up at your hotel or the airport. From there, your only job is to enjoy Cape Town.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="promise">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Why guests come back</span>
+      <h2>One driver. One plan.<br>Zero stress.</h2>
+      <p>Cape Town is spectacular — and spread out. Doing it by rideshare and guesswork means wasted hours and missed light. We've driven these roads hundreds of times and know exactly when Chapman's Peak glows and when the penguins are out.</p>
+      <ul>
+        <li>Comfortable, air-conditioned vehicle</li>
+        <li>Local driver who knows every viewpoint and shortcut</li>
+        <li>Flexible stops — it's your trip, not a bus schedule</li>
+        <li>Help with tickets, restaurants and photo spots</li>
+      </ul>
+    </div>
+    <img id="promiseImg" src="" alt="On the road in Cape Town" class="reveal">
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap">
+    <span class="eyebrow">Let's plan it</span>
+    <h2>Your Cape Town trip starts with one message</h2>
+    <p>Fill this in and it opens WhatsApp with your details ready to send — or just message us directly.</p>
+    <form class="book-card reveal" id="bookForm">
+      <label for="fName">Your name</label>
+      <input id="fName" required placeholder="e.g. Amara O.">
+      <label for="fDates">Travel dates</label>
+      <input id="fDates" required placeholder="e.g. 12–18 September">
+      <label for="fPeople">How many people</label>
+      <input id="fPeople" required placeholder="e.g. 2 adults, 1 child">
+      <label for="fNotes">What would you love to see?</label>
+      <textarea id="fNotes" placeholder="Peninsula route, penguins, wine farms, city day…"></textarea>
+      <button class="btn" type="submit">Send via WhatsApp</button>
+    </form>
+    <p class="alt-contact">Or find us on <a href="https://www.facebook.com/share/17fV18rHh4/" target="_blank" rel="noopener">Facebook</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="logo">Tripps to Anywhere</span>
+    <span>Cape Town, South Africa</span>
+    <a href="https://www.facebook.com/share/17fV18rHh4/" target="_blank" rel="noopener">Facebook</a>
+  </div>
+</footer>
+
+<script src="media.js"></script>
+<script>
+  // hero + promise images
+  document.getElementById('heroBg').style.backgroundImage = `url('${SITE.hero}')`;
+  document.getElementById('promiseImg').src = SITE.promiseImg;
+
+  // gallery rail (subset of best shots)
+  const rail = document.getElementById('rail');
+  SITE.railPicks.forEach(f => {
+    const m = MEDIA.find(x => x.file === f); if (!m) return;
+    const fig = document.createElement('figure');
+    if (m.orientation === 'portrait') fig.classList.add('tall');
+    fig.innerHTML = `<img src="media/${m.file}" alt="${m.caption}" loading="lazy"><figcaption>${m.caption}</figcaption>`;
+    rail.appendChild(fig);
+  });
+
+  // route stops
+  const stopsEl = document.getElementById('stops');
+  SITE.route.forEach((s, i) => {
+    const div = document.createElement('div');
+    div.className = 'stop reveal';
+    div.innerHTML = `
+      <div><span class="tag">Stop ${String(i+1).padStart(2,'0')}</span>
+        <h3>${s.name}</h3><p>${s.desc}</p></div>
+      ${s.img ? `<img src="media/${s.img}" alt="${s.name}" loading="lazy">` : ''}`;
+    stopsEl.appendChild(div);
+  });
+
+  // experiences
+  const expGrid = document.getElementById('expGrid');
+  SITE.experiences.forEach(x => {
+    const card = document.createElement('div');
+    card.className = 'exp-card reveal';
+    card.innerHTML = `<img src="media/${x.img}" alt="${x.name}" loading="lazy">
+      <div class="inner"><h3>${x.name}</h3><p>${x.desc}</p></div>`;
+    expGrid.appendChild(card);
+  });
+
+  // WhatsApp booking
+  document.getElementById('bookForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const msg = `Hi! I'd like to plan a Cape Town trip.%0A%0AName: ${encodeURIComponent(fName.value)}%0ADates: ${encodeURIComponent(fDates.value)}%0AGroup: ${encodeURIComponent(fPeople.value)}%0AInterests: ${encodeURIComponent(fNotes.value)}`;
+    window.open(`https://wa.me/${SITE.whatsapp}?text=${msg}`, '_blank');
+  });
+
+  // nav scroll state
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+
+  // drag-scroll on rail
+  let down=false, sx=0, sl=0;
+  rail.addEventListener('pointerdown', e => {down=true;sx=e.clientX;sl=rail.scrollLeft});
+  addEventListener('pointermove', e => {if(down) rail.scrollLeft = sl - (e.clientX - sx)});
+  addEventListener('pointerup', () => down=false);
+
+  // reveal on scroll
+  const io = new IntersectionObserver(es => es.forEach(x => x.isIntersecting && x.target.classList.add('in')), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
