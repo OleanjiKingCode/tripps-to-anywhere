@@ -209,8 +209,10 @@
   .book-card{max-width:560px;margin:0 auto;background:rgba(247,243,234,.06);border:1px solid rgba(247,243,234,.14);border-radius:20px;padding:36px;text-align:left}
   .book-card label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--seafoam);font-weight:600;display:block;margin:18px 0 8px}
   .book-card label:first-child{margin-top:0}
-  .book-card input,.book-card textarea{width:100%;background:rgba(247,243,234,.08);border:1px solid rgba(247,243,234,.18);border-radius:10px;padding:13px 15px;color:var(--paper);font-family:var(--sans);font-size:16px}
-  .book-card input:focus,.book-card textarea:focus{outline:none;border-color:var(--seafoam)}
+  .book-card input,.book-card textarea,.book-card select{width:100%;background:rgba(247,243,234,.08);border:1px solid rgba(247,243,234,.18);border-radius:10px;padding:13px 15px;color:var(--paper);font-family:var(--sans);font-size:16px}
+  .book-card input:focus,.book-card textarea:focus,.book-card select:focus{outline:none;border-color:var(--seafoam)}
+  .book-card select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a7ccc4' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;cursor:pointer}
+  .book-card select option{background:var(--ink);color:var(--paper)}
   .book-card textarea{min-height:90px;resize:vertical}
   .book-card .btn{width:100%;justify-content:center;margin-top:26px;background:#25d366;color:#06281a;font-size:16px}
   .book-card .btn:hover{filter:brightness(1.08)}
@@ -306,7 +308,7 @@
     <h2 class="reveal">Tours &amp; rates</h2>
     <p class="lead reveal">Per-person rates in South African Rand. Winter specials are on now — message us for a quote for your group.</p>
     <div class="rates-grid" id="ratesGrid"></div>
-    <p class="rates-fineprint reveal">Entry fees and permits are extra where noted. Transport is quoted by group size — the more of you, the better the deal. Once your trip is confirmed you can <a href="https://pay.yoco.com/r/moAkVZ" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600">pay securely online via Yoco</a>.</p>
+    <p class="rates-fineprint reveal">Entry fees and permits are extra where noted. Transport is quoted by group size — the more of you, the better the deal.</p>
     <div class="rates-more reveal">
       <h3>And that's just the highlights</h3>
       <p>Cape Town has so much more — you request it, we'll plan it, book it and drive you there.</p>
@@ -350,6 +352,8 @@
     <h2>Your Cape Town trip starts with one message</h2>
     <p>Fill this in and it opens WhatsApp with your details ready to send — or just message us directly.</p>
     <form class="book-card reveal" id="bookForm">
+      <label for="fPackage">Choose your package</label>
+      <select id="fPackage" required></select>
       <label for="fName">Your name</label>
       <input id="fName" required placeholder="e.g. Amara O.">
       <label for="fDates">Travel dates</label>
@@ -359,9 +363,8 @@
       <label for="fNotes">What would you love to see?</label>
       <textarea id="fNotes" placeholder="Peninsula route, penguins, wine farms, city day…"></textarea>
       <button class="btn" type="submit">Send via WhatsApp</button>
-      <a class="btn btn-pay" href="https://pay.yoco.com/r/moAkVZ" target="_blank" rel="noopener">💳&ensp;Pay for your trip — secure card payment</a>
     </form>
-    <p class="alt-contact">Or find us on <a href="https://www.facebook.com/share/17fV18rHh4/" target="_blank" rel="noopener">Facebook</a> · Already booked? <a href="https://pay.yoco.com/r/moAkVZ" target="_blank" rel="noopener">Pay securely online</a></p>
+    <p class="alt-contact">Or find us on <a href="https://www.facebook.com/share/17fV18rHh4/" target="_blank" rel="noopener">Facebook</a></p>
   </div>
 </section>
 
@@ -423,16 +426,26 @@
       <div class="unit">${t.unit}</div>
       <ul>${t.notes.map(n => `<li>${n}</li>`).join('')}</ul>
       <div class="rate-actions">
-        <a class="book" href="https://wa.me/${SITE.whatsapp}?text=${waMsg}" target="_blank" rel="noopener">Book</a>
-        <a class="pay" href="${SITE.payment}" target="_blank" rel="noopener">💳 Pay</a>
+        <a class="book" href="https://wa.me/${SITE.whatsapp}?text=${waMsg}" target="_blank" rel="noopener">Book this tour</a>
       </div>`;
     ratesGrid.appendChild(card);
   });
 
+  // package selector
+  const fPackage = document.getElementById('fPackage');
+  SITE.tours.forEach(t => {
+    const o = document.createElement('option');
+    o.value = o.textContent = `${t.name} — ${t.price} ${t.unit}`;
+    fPackage.appendChild(o);
+  });
+  const oCustom = document.createElement('option');
+  oCustom.value = oCustom.textContent = 'Custom trip — tell us what you have in mind';
+  fPackage.appendChild(oCustom);
+
   // WhatsApp booking
   document.getElementById('bookForm').addEventListener('submit', e => {
     e.preventDefault();
-    const msg = `Hi! I'd like to plan a Cape Town trip.\n\nName: ${fName.value}\nDates: ${fDates.value}\nGroup: ${fPeople.value}\nInterests: ${fNotes.value}`;
+    const msg = `Hi! I'd like to book a trip.\n\nPackage: ${fPackage.value}\nName: ${fName.value}\nDates: ${fDates.value}\nGroup: ${fPeople.value}\nNotes: ${fNotes.value}`;
     window.open(`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(msg)}`, '_blank');
   });
 
