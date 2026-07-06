@@ -168,6 +168,12 @@
   .rate-card ul{list-style:none;margin-top:auto}
   .rate-card li{font-size:13.5px;color:var(--rock);padding:3px 0 3px 18px;position:relative}
   .rate-card li::before{content:'·';position:absolute;left:4px;color:var(--teal);font-weight:700}
+  .rate-actions{display:flex;gap:10px;margin-top:18px}
+  .rate-actions a{flex:1;text-align:center;padding:11px 10px;border-radius:999px;font-size:14px;font-weight:600;transition:.2s}
+  .rate-actions .book{background:var(--deep);color:var(--paper)}
+  .rate-actions .book:hover{background:var(--teal)}
+  .rate-actions .pay{border:1px solid var(--line);color:var(--ink)}
+  .rate-actions .pay:hover{border-color:var(--ink)}
   .rate-tag{position:absolute;top:20px;right:20px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--deep);background:var(--seafoam);padding:5px 11px;border-radius:999px}
   .rates-fineprint{margin-top:28px;font-size:13px;color:var(--rock)}
   .rates-more{margin-top:40px;text-align:center;padding:30px;border:1px dashed var(--line);border-radius:16px}
@@ -410,11 +416,16 @@
   SITE.tours.forEach(t => {
     const card = document.createElement('div');
     card.className = 'rate-card reveal';
+    const waMsg = encodeURIComponent(`Hi! I'd like to book the ${t.name} (${t.price} ${t.unit}). When are you available?`);
     card.innerHTML = `${t.tag ? `<span class="rate-tag">${t.tag}</span>` : ''}
       <h3>${t.name}</h3>
       <div class="price">${t.price}</div>
       <div class="unit">${t.unit}</div>
-      <ul>${t.notes.map(n => `<li>${n}</li>`).join('')}</ul>`;
+      <ul>${t.notes.map(n => `<li>${n}</li>`).join('')}</ul>
+      <div class="rate-actions">
+        <a class="book" href="https://wa.me/${SITE.whatsapp}?text=${waMsg}" target="_blank" rel="noopener">Book</a>
+        <a class="pay" href="${SITE.payment}" target="_blank" rel="noopener">💳 Pay</a>
+      </div>`;
     ratesGrid.appendChild(card);
   });
 
