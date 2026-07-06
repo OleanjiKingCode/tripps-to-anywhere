@@ -38,11 +38,13 @@
     "address": { "@type": "PostalAddress", "addressLocality": "Cape Town", "addressCountry": "ZA" }
   },
   "makesOffer": [
-    { "@type": "Offer", "itemOffered": { "@type": "TouristTrip", "name": "Cape Peninsula Day Tour", "description": "Table Mountain, Camps Bay, Hout Bay, Chapman's Peak Drive, Cape of Good Hope and Boulders Beach penguins with a private driver." } },
-    { "@type": "Offer", "itemOffered": { "@type": "TouristTrip", "name": "Cape Town Full-Day City Drive", "description": "Bo-Kaap, V&A Waterfront, Signal Hill and the city's best viewpoints." } },
-    { "@type": "Offer", "itemOffered": { "@type": "TouristTrip", "name": "Aquila Safari Day Trip", "description": "Big Five game drive at Aquila Private Game Reserve with transport from Cape Town." } },
-    { "@type": "Offer", "itemOffered": { "@type": "TouristTrip", "name": "Shark Cage Diving", "description": "Shark cage diving experience off the Cape coast, gear and transport arranged." } },
-    { "@type": "Offer", "itemOffered": { "@type": "TouristTrip", "name": "Quad Biking the Dunes", "description": "Quad biking on white-sand dunes outside Cape Town." } }
+    { "@type": "Offer", "price": "800", "priceCurrency": "ZAR", "itemOffered": { "@type": "TouristTrip", "name": "Cape Peninsula Day Tour", "description": "Table Mountain, Camps Bay, Hout Bay, Chapman's Peak Drive, Cape of Good Hope and Boulders Beach penguins with a private driver. R800 pp winter special, R1,200 pp in summer, entry fees excluded." } },
+    { "@type": "Offer", "price": "1800", "priceCurrency": "ZAR", "itemOffered": { "@type": "TouristTrip", "name": "Cape Town Full-Day City Tour", "description": "Bo-Kaap, V&A Waterfront, Signal Hill and the city's best viewpoints. From R1,800." } },
+    { "@type": "Offer", "price": "1000", "priceCurrency": "ZAR", "itemOffered": { "@type": "TouristTrip", "name": "Aquila Safari Day Trip", "description": "Big Five game drive at Aquila Private Game Reserve, R1,000 pp same-day return or R1,500 pp overnight return." } },
+    { "@type": "Offer", "price": "3300", "priceCurrency": "ZAR", "itemOffered": { "@type": "TouristTrip", "name": "Shark Cage Diving", "description": "Shark cage diving off the Cape coast, R3,300 pp, gear included, transport arranged." } },
+    { "@type": "Offer", "price": "800", "priceCurrency": "ZAR", "itemOffered": { "@type": "TouristTrip", "name": "Atlantis Dunes Quad Biking", "description": "Quad biking on the Atlantis white-sand dunes. R800 pp per hour or R500 pp for 30 minutes, permit R300 extra." } },
+    { "@type": "Offer", "itemOffered": { "@type": "TouristTrip", "name": "Cape Winelands Tours", "description": "Wine tours to Franschhoek, Stellenbosch, Constantia and Robertson, tailored to your pace and preference." } },
+    { "@type": "Offer", "price": "4500", "priceCurrency": "ZAR", "itemOffered": { "@type": "TouristTrip", "name": "Garden Route Tour", "description": "Garden Route day trips at R4,500 per day, multi-day itineraries on request." } }
   ]
 }
 </script>
@@ -154,6 +156,24 @@
   .exp-card h3{font-size:24px;margin-bottom:8px}
   .exp-card p{font-size:14px;color:rgba(247,243,234,.85)}
 
+  /* rates */
+  .rates{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .rates h2{font-size:clamp(30px,4vw,44px);margin:12px 0 14px}
+  .rates .lead{color:var(--rock);max-width:560px;margin-bottom:52px}
+  .rates-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .rate-card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px 26px;display:flex;flex-direction:column}
+  .rate-card h3{font-size:20px;margin-bottom:14px;padding-right:86px}
+  .rate-card .price{font-family:var(--serif);font-size:34px;color:var(--deep);line-height:1}
+  .rate-card .unit{font-size:13px;color:var(--rock);margin:6px 0 14px}
+  .rate-card ul{list-style:none;margin-top:auto}
+  .rate-card li{font-size:13.5px;color:var(--rock);padding:3px 0 3px 18px;position:relative}
+  .rate-card li::before{content:'·';position:absolute;left:4px;color:var(--teal);font-weight:700}
+  .rate-tag{position:absolute;top:20px;right:20px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--deep);background:var(--seafoam);padding:5px 11px;border-radius:999px}
+  .rates-fineprint{margin-top:28px;font-size:13px;color:var(--rock)}
+  .rates-more{margin-top:40px;text-align:center;padding:30px;border:1px dashed var(--line);border-radius:16px}
+  .rates-more p{color:var(--rock);max-width:520px;margin:0 auto 18px}
+  .rates-more h3{font-size:22px;margin-bottom:8px}
+
   /* how */
   .how h2{font-size:clamp(30px,4vw,44px);margin:12px 0 56px}
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -207,6 +227,7 @@
     <a class="logo" href="#">Tripps to Anywhere</a>
     <div class="navlinks">
       <a href="#route">The Route</a>
+      <a href="#rates">Rates</a>
       <a href="gallery.html">Gallery</a>
       <a href="#how">How it works</a>
       <a href="#book" class="btn btn-book">Book a trip</a>
@@ -269,6 +290,21 @@
     <h2 class="reveal">Add an adventure</h2>
     <p class="lead reveal">A day with lions, a cage between you and a shark, or dunes under your wheels — we arrange it all, transport included.</p>
     <div class="exp-grid" id="expGrid"></div>
+  </div>
+</section>
+
+<section class="rates" id="rates">
+  <div class="wrap">
+    <span class="eyebrow reveal">Straightforward pricing</span>
+    <h2 class="reveal">Tours &amp; rates</h2>
+    <p class="lead reveal">Per-person rates in South African Rand. Winter specials are on now — message us for a quote for your group.</p>
+    <div class="rates-grid" id="ratesGrid"></div>
+    <p class="rates-fineprint reveal">Entry fees and permits are extra where noted. Transport is quoted by group size — the more of you, the better the deal.</p>
+    <div class="rates-more reveal">
+      <h3>And that's just the highlights</h3>
+      <p>Cape Town has so much more — you request it, we'll plan it, book it and drive you there.</p>
+      <a href="#book" class="btn btn-solid">Ask for a custom trip</a>
+    </div>
   </div>
 </section>
 
@@ -365,6 +401,19 @@
     card.innerHTML = `<img src="media/${x.img}" alt="${x.name}" loading="lazy">
       <div class="inner"><h3>${x.name}</h3><p>${x.desc}</p></div>`;
     expGrid.appendChild(card);
+  });
+
+  // rates
+  const ratesGrid = document.getElementById('ratesGrid');
+  SITE.tours.forEach(t => {
+    const card = document.createElement('div');
+    card.className = 'rate-card reveal';
+    card.innerHTML = `${t.tag ? `<span class="rate-tag">${t.tag}</span>` : ''}
+      <h3>${t.name}</h3>
+      <div class="price">${t.price}</div>
+      <div class="unit">${t.unit}</div>
+      <ul>${t.notes.map(n => `<li>${n}</li>`).join('')}</ul>`;
+    ratesGrid.appendChild(card);
   });
 
   // WhatsApp booking
