@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tripps-to-anywhere.vercel.app/sitemap.xml
+Sitemap: https://www.trippstoanywhere.com/sitemap.xml
