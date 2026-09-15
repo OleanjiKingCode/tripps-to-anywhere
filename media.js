@@ -92,5 +92,9 @@ const MEDIA = [
   { file: "img-44.jpg", type: "photo", orientation: "landscape", category: "places", caption: "A gull surveys the harbour" },
   { file: "img-32.jpg", type: "photo", orientation: "landscape", category: "places", caption: "City towers above a rooftop pool" },
   { file: "img-36.jpg", type: "photo", orientation: "landscape", category: "places", caption: "Evening drive toward the peninsula mountains" },
+  { file: "img-46.jpg", type: "photo", orientation: "landscape", category: "places", caption: "The turn-off to Cape Agulhas, Africa's southernmost tip" },
+  { file: "img-47.jpg", type: "photo", orientation: "portrait",  category: "places", caption: "Ostriches grazing by the ocean at Cape Point" },
+  { file: "img-48.jpg", type: "photo", orientation: "landscape", category: "people", caption: "A sunny stop on the Atlantic coast" },
   { file: "video-01.mp4", type: "video", orientation: "portrait", category: "video", caption: "Moments from the road" },
+  { file: "video-02.mp4", type: "video", orientation: "landscape", category: "video", caption: "Penguins waddling up the beach" },
 ];
