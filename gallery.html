@@ -19,9 +19,8 @@
 <meta name="twitter:title" content="The Gallery — Tripps to Anywhere">
 <meta name="twitter:description" content="Real photos and videos from our Cape Town trips.">
 <meta name="twitter:image" content="https://www.trippstoanywhere.com/media/og-image.jpg">
-<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
-<link rel="icon" href="favicon-32.png?v=2" type="image/png" sizes="32x32">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<link rel="icon" href="favicon-32.png?v=3" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -40,7 +39,8 @@
 
   nav{position:sticky;top:0;z-index:50;background:rgba(247,243,234,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:14px 0}
   nav .wrap{display:flex;align-items:center;justify-content:space-between}
-  .logo{font-family:var(--serif);font-size:20px}
+  .logo{font-family:var(--serif);font-size:20px;display:inline-flex;align-items:center;gap:12px}
+  .logo-mark{width:40px;height:40px;flex:none}
   .back{font-size:14px;font-weight:500;color:var(--teal)}
   .back:hover{opacity:.7}
 
@@ -73,6 +73,8 @@
   .lb-prev{left:22px;top:50%;transform:translateY(-50%)}
   .lb-next{right:22px;top:50%;transform:translateY(-50%)}
   @media(max-width:640px){.lb-prev{left:8px}.lb-next{right:8px}}
+  .logo,.back{white-space:nowrap}
+  @media(max-width:480px){.logo{font-size:16px;gap:8px}.logo-mark{width:32px;height:32px}.back{font-size:13px}}
 
   footer{border-top:1px solid var(--line);padding:30px 0;font-size:14px;color:var(--rock)}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
@@ -83,7 +85,7 @@
 
 <nav>
   <div class="wrap">
-    <a class="logo" href="index.html">Tripps to Anywhere</a>
+    <a class="logo" href="index.html"><img class="logo-mark" src="logo-192.png" alt="" width="44" height="44">Tripps to Anywhere</a>
     <a class="back" href="index.html">← Back to the trip</a>
   </div>
 </nav>

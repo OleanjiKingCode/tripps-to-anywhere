@@ -20,9 +20,8 @@
 <meta name="twitter:title" content="Tripps to Anywhere — Cape Town, handled.">
 <meta name="twitter:description" content="Private driver, planned routes, everything booked. Your Cape Town trip starts with one message.">
 <meta name="twitter:image" content="https://www.trippstoanywhere.com/media/og-image.jpg">
-<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
-<link rel="icon" href="favicon-32.png?v=2" type="image/png" sizes="32x32">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<link rel="icon" href="favicon-32.png?v=3" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -41,6 +40,7 @@
   "description": "Private Cape Town trips with your own driver — the full Peninsula route, Table Mountain, Chapman's Peak, Cape of Good Hope, Boulders Beach penguins, plus safaris, shark cage diving and quad biking. Route planned and every stop booked before you arrive.",
   "url": "https://www.trippstoanywhere.com/",
   "image": "https://www.trippstoanywhere.com/media/og-image.jpg",
+  "logo": "https://www.trippstoanywhere.com/logo-512.png",
   "telephone": "+27781621038",
   "sameAs": ["https://www.facebook.com/share/17fV18rHh4/"],
   "areaServed": {
@@ -98,6 +98,9 @@
   nav .wrap{display:flex;align-items:center;justify-content:space-between}
   .logo{font-family:var(--serif);font-size:21px;letter-spacing:.02em;color:var(--paper);transition:.3s}
   nav.scrolled .logo{color:var(--ink)}
+  .logo{display:inline-flex;align-items:center;gap:12px}
+  .logo-mark{width:44px;height:44px;flex:none}
+  footer .logo-mark{width:36px;height:36px}
   .navlinks{display:flex;gap:32px;align-items:center;font-size:14px;font-weight:500}
   .navlinks a{color:rgba(247,243,234,.85);transition:.3s}
   nav.scrolled .navlinks a{color:var(--ink)}
@@ -113,6 +116,8 @@
   nav .btn-book{background:var(--paper);color:var(--ink)}
   nav.scrolled .navlinks a.btn-book{background:var(--deep);color:var(--paper)}
   @media(max-width:760px){.navlinks a:not(.btn){display:none}}
+  .logo,.navlinks .btn{white-space:nowrap}
+  @media(max-width:480px){nav .logo{font-size:17px;gap:9px}nav .logo-mark{width:36px;height:36px}.navlinks .btn{padding:9px 16px}}
 
   /* hero */
   .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--paper)}
@@ -251,7 +256,7 @@
 
 <nav id="nav">
   <div class="wrap">
-    <a class="logo" href="#">Tripps to Anywhere</a>
+    <a class="logo" href="#"><img class="logo-mark" src="logo-192.png" alt="" width="44" height="44">Tripps to Anywhere</a>
     <div class="navlinks">
       <a href="#route">The Route</a>
       <a href="#rates">Rates</a>
@@ -394,7 +399,7 @@
 
 <footer>
   <div class="wrap">
-    <span class="logo">Tripps to Anywhere</span>
+    <span class="logo"><img class="logo-mark" src="logo-192.png" alt="" width="44" height="44">Tripps to Anywhere</span>
     <span>Cape Town, South Africa</span>
     <a href="https://www.facebook.com/share/17fV18rHh4/" target="_blank" rel="noopener">Facebook</a>
   </div>
