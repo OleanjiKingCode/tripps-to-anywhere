@@ -6,7 +6,8 @@ const SITE = {
   whatsapp: "27781621038",
   facebook: "https://www.facebook.com/share/17fV18rHh4/",
   payment: "https://pay.yoco.com/r/moAkVZ",
-  hero: "media/table-mountain.jpg",
+  hero: "media/table-mountain-tripps.jpg",
+  heroMobile: "media/table-mountain-tripps-m.jpg",
   promiseImg: "media/img-27.jpg",
   railPicks: ["img-26.jpg","img-01.jpg","img-41.jpg","img-28.jpg","img-14.jpg","img-31.jpg","img-42.jpg","img-18.jpg","img-20.jpg","img-33.jpg","img-23.jpg","img-06.jpg"],
   route: [

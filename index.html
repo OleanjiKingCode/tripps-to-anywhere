@@ -121,11 +121,12 @@
 
   /* hero */
   .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--paper)}
-  .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center 35%}
+  .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center 35%;background-image:var(--hero)}
+  @media(max-aspect-ratio:6/5){.hero-bg{background-image:var(--hero-m);background-position:center top}}
   .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,31,35,.35) 0%,rgba(13,31,35,.15) 40%,rgba(13,31,35,.82) 100%)}
   .hero .wrap{position:relative;padding-bottom:88px;width:100%}
-  .hero .eyebrow{color:var(--seafoam)}
-  .hero h1{font-size:clamp(46px,7.5vw,96px);margin:14px 0 18px;letter-spacing:.01em}
+  .hero .eyebrow{display:block;margin-bottom:14px;color:var(--seafoam)}
+  .hero h1{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   .hero p{max-width:560px;font-size:clamp(16px,2vw,19px);color:rgba(247,243,234,.9);margin-bottom:34px}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
 
@@ -408,7 +409,9 @@
 <script src="media.js"></script>
 <script>
   // hero + promise images
-  document.getElementById('heroBg').style.backgroundImage = `url('${SITE.hero}')`;
+  const heroBg = document.getElementById('heroBg');
+  heroBg.style.setProperty('--hero', `url('${SITE.hero}')`);
+  heroBg.style.setProperty('--hero-m', `url('${SITE.heroMobile}')`);
   document.getElementById('promiseImg').src = SITE.promiseImg;
 
   // gallery rail (subset of best shots)
