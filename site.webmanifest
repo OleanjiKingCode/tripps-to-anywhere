@@ -1,8 +1,11 @@
 {
+  "id": "/",
   "name": "Tripps to Anywhere",
   "short_name": "Tripps",
+  "description": "Private Cape Town trips with your own driver.",
   "start_url": "/",
-  "display": "browser",
+  "scope": "/",
+  "display": "standalone",
   "background_color": "#f7f3ea",
   "theme_color": "#1c5d68",
   "icons": [
